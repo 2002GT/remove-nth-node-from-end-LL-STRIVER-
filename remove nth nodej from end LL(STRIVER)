@@ -1,0 +1,64 @@
+
+
+
+    // remove nth node from the end of the LL
+    
+    #include<iostream>
+#include<bits/stdc++.h>
+using namespace std; 
+
+struct node{
+int data;
+struct node *next;
+};
+//delete nth node from back of the linked list
+node* delnthfrmback(node *head,int n){
+    node* slow=head,*fast=head;//not considered edge cases like less nodes than n or n=list size
+    for(int i =1;i<=n;i++){
+        fast=fast->next;
+    }
+    node * frnd;
+    while(fast){
+        fast=fast->next;
+        frnd=slow;
+        slow=slow->next;
+    }
+    frnd->next=slow->next;
+    slow=NULL;//not written free as mem is created at stack area not heap
+    return head;
+}
+int main(){ 
+    node n1={10,NULL};
+    node n2={20,NULL};
+    node n3={30,NULL}; 
+    node n4={40,NULL};
+    node n5={50,NULL};
+    node n6={60,NULL};
+    node n7={70,NULL};
+n1.next=&n2;n2.next=&n3; n3.next=&n4; n4.next=&n5; n5.next=&n6; n6.next=&n7;
+node* head=&n1;
+   
+    node n21={15,NULL};
+    node n22={25,NULL};
+    node n23={35,NULL}; 
+    node n24={45,NULL};
+    node n25={55,NULL};
+    node n26={65,NULL};
+    node n27={75,NULL};
+     n7.next=&n21;
+n21.next=&n22;n22.next=&n23; n23.next=&n24; n24.next=&n25; n25.next=&n26; n26.next=&n27;
+node *temp=head;
+while(temp){
+cout<<temp->data<<" ";
+temp=temp->next;
+}
+cout<<endl;
+temp =delnthfrmback(head,4);
+
+while(temp){
+cout<<temp->data<<" ";
+temp=temp->next;
+}
+return 0;
+}
+    
