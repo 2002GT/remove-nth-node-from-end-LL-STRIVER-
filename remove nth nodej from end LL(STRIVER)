@@ -8,6 +8,7 @@
 using namespace std; 
 
 struct node{
+
 int data;
 struct node *next;
 };
@@ -15,6 +16,7 @@ struct node *next;
 node* delnthfrmback(node *head,int n){
     node* slow=head,*fast=head;//not considered edge cases like less nodes than n or n=list size
     for(int i =1;i<=n;i++){
+
         fast=fast->next;
     }
     node * frnd;
@@ -30,6 +32,7 @@ node* delnthfrmback(node *head,int n){
 int main(){ 
     node n1={10,NULL};
     node n2={20,NULL};
+
     node n3={30,NULL}; 
     node n4={40,NULL};
     node n5={50,NULL};
